@@ -21,7 +21,7 @@ export LONG=<longitude where you will be using power>
 ## Executing the client
 
 ```python
-from client import WattTime
+from simplemoer import WattTime
 
 wt=WattTime()
 index=wt.get_index()
