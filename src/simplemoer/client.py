@@ -22,6 +22,9 @@ class WattTime:
         if long=="":
             long=os.environ.get('LONG')
 
+        if username=="" or password=="" or latt=="" or long=="":
+            raise Exception("Did not find watttime credentials. Either provide them while enstantiating WattTime, or make sure the WATTTIMEUSERNAME, WATTTIMEPASSWORD, LATT and LONG environment variables are set.")
+
         resp_plain = requests.get(self.LOGIN_URL, auth=HTTPBasicAuth(username, password))
         self.token=resp_plain.json()['token']
         
