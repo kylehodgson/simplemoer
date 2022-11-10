@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "simplemoer"
-version = "0.0.2"
+version = "0.0.3"
 authors = [
   { name="Kyle Hodgson", email="kyle.hodgson@gmail.com" },
 ]
