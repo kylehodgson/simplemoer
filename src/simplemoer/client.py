@@ -13,6 +13,7 @@ class WattTime:
     INDEX_URL = 'https://api2.watttime.org/index'
     LOGIN_URL = 'https://api2.watttime.org/v2/login'
     REGION_URL = 'https://api2.watttime.org/v2/ba-from-loc'
+    REGISTER_URL = 'https://api2.watttime.org/v2/register'
 
     def __init__(self, username="", password="", latt="", long="") -> None:
         if not username:
@@ -61,3 +62,18 @@ class WattTime:
         resp_plain = requests.get(
             self.REGION_URL, headers=headers, params=params)
         return resp_plain.json()
+
+    @classmethod
+    def register(cls, username, password, email, org=""):
+        params = {
+            'username': username,
+            'password': password,
+            'email': email}
+        if org:
+            params.org = org
+        resp_plain = requests.post(WattTime.REGISTER_URL, json=params)
+        response = resp_plain.json()
+        if 'error' in response:
+            raise Exception(
+                f"WattTime registration returned an error: {response['error']}")
+        return response

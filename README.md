@@ -28,6 +28,15 @@ index=wt.get_index()
 print(f"index: {index}")
 ```
 
+## Registering an API account
+```python
+from simplemoer import WattTime
+
+response=WattTime.register(USERNAME,PASSWORD,EMAIL)
+print(f"response: {response}")
+```
+
+
 ## Example results
 Running the example code for my given lattitude and longitude, the WattTime client will acquire my balancing authority as IESO_NORTH. Results for this point in time indicate the grid's moer value is 49%. This index value is valid for 300 seconds from this point in time, as indicated by the `freq` and `point_time` values.
 ```
